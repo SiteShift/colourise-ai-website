@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://colouriseai.com"),
+  metadataBase: new URL("https://colorizeai.app"),
   alternates: {
     canonical: "/",
   },
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     title: "ColouriseAI - Bring Your Memories to Life with AI",
     description:
       "Transform black & white photos into stunning color images with AI. Restore old family photos and preserve your memories.",
-    url: "https://colouriseai.com",
+    url: "https://colorizeai.app",
     siteName: "ColouriseAI",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/hero-background.webp",
         width: 1200,
         height: 630,
         alt: "ColouriseAI - AI Photo Colorization",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ColouriseAI - Bring Your Memories to Life with AI",
     description: "Transform black & white photos into stunning color images with AI.",
-    images: ["/og-image.jpg"],
+    images: ["/hero-background.webp"],
     creator: "@ColouriseAI",
   },
   robots: {

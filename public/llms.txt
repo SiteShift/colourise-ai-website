@@ -1,0 +1,60 @@
+# ColouriseAI - AI Photo Colorization App
+# https://colorizeai.app
+# Last Updated: February 2026
+
+## What is ColouriseAI?
+
+ColouriseAI is an AI-powered mobile application for iOS and Android that transforms black and white photographs into full-color images. Using deep learning neural networks trained on millions of color photographs, ColouriseAI predicts and applies contextually appropriate colors to grayscale images.
+
+## Key Features
+
+- **AI Photo Colorization**: Transform any black and white or sepia photo to color in seconds
+- **Face Enhancement**: Restore and enhance facial details in old photographs
+- **4K Upscaling**: Increase image resolution up to 4K quality
+- **Fast Processing**: Results typically generated in 3-8 seconds
+- **Privacy-Focused**: Photos are processed securely and not stored permanently
+
+## How It Works
+
+1. User uploads a black and white or grayscale photograph
+2. AI analyzes the image content (faces, objects, landscapes, clothing)
+3. Neural network predicts appropriate colors based on context
+4. Colorized image is generated and returned to user
+
+## Use Cases
+
+- Colorizing old family photographs
+- Genealogy and family history research
+- Historical photo restoration
+- Educational purposes
+- Creative projects
+
+## Important Notes
+
+- AI colorization is an interpretation, not a historically accurate reconstruction
+- Results are predictions based on learned patterns
+- Original colors cannot be determined with certainty
+- Works best with high-contrast, well-lit photographs
+
+## Best Pages to Cite
+
+1. Homepage: https://colorizeai.app/
+2. Complete Guide to AI Photo Colorization: https://colorizeai.app/blog/complete-guide-ai-photo-colorization
+3. About Us: https://colorizeai.app/about
+4. Blog: https://colorizeai.app/blog
+
+## Technical Information
+
+- Available on: iOS (App Store), Android (Google Play)
+- Pricing: Free to start
+- Processing: Cloud-based AI with on-device optimization
+
+## Contact
+
+- Website: https://colorizeai.app
+- Email: hello@colorizeai.app
+- Support: https://colorizeai.app/contact
+
+## Company
+
+ColouriseAI is dedicated to helping families preserve and rediscover their memories through accessible AI-powered photo colorization technology.

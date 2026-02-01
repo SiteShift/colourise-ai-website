@@ -1,0 +1,119 @@
+/* Blog Post Typography Styles */
+
+.blogContent h2 {
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  margin-top: 4rem !important;
+  margin-bottom: 1.5rem !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #ff0080 0%, #8b5cf6 50%, #00ffff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.blogContent h3 {
+  font-size: 1.875rem !important;
+  line-height: 1.3 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+.blogContent h4 {
+  font-size: 1.5rem !important;
+  line-height: 1.4 !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+}
+
+.blogContent p {
+  font-size: 1.125rem !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem !important;
+  color: #4b5563 !important;
+}
+
+.blogContent ul, 
+.blogContent ol {
+  margin: 2rem 0 !important;
+}
+
+.blogContent li {
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.75rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.blogContent li strong {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+.blogContent ul > li {
+  position: relative;
+}
+
+.blogContent ul > li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #ff0080, #8b5cf6);
+  border-radius: 50%;
+}
+
+.blogContent hr {
+  margin: 4rem 0 !important;
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent) !important;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .blogContent {
+    font-size: 1rem !important;
+  }
+  
+  .blogContent h2 {
+    font-size: 2rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .blogContent h3 {
+    font-size: 1.5rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .blogContent h4 {
+    font-size: 1.25rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .blogContent p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .blogContent li {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .blogContent ul, 
+  .blogContent ol {
+    margin: 1.5rem 0 !important;
+  }
+} 

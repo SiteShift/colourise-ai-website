@@ -22,11 +22,11 @@ export function HeroSection() {
       <div className="container mx-auto relative z-10 pt-20 md:pt-0">
         {/* Mobile Layout - Text above mockups (hidden on desktop) */}
         <div className="flex flex-col items-center text-center space-y-6 sm:hidden">
-          {/* App of the Day Badge */}
+          {/* Badge */}
           <div className="flex justify-center pt-12">
             <div className="bg-white/20 backdrop-blur-md border border-gray-100 rounded-full px-4 py-2 flex items-center space-x-2 shadow-sm">
               <Award className="w-4 h-4 text-gray-800" />
-              <span className="text-sm font-medium text-gray-800">Voted App of the Day</span>
+              <span className="text-sm font-medium text-gray-800">AI-Powered Photo Colorization</span>
             </div>
           </div>
 
@@ -37,29 +37,13 @@ export function HeroSection() {
             <div>to Life</div>
           </h1>
 
-          {/* Download Badges - Mobile */}
-          <div className="flex flex-row gap-4 justify-center">
-            <a href="#" className="transition-transform hover:scale-105">
-              <Image
-                src="/google-play-badge.webp"
-                alt="Get it on Google Play"
-                width={200}
-                height={60}
-                className="h-11 w-auto"
-                sizes="200px"
-                loading="eager"
-              />
-            </a>
-            <a href="#" className="transition-transform hover:scale-105">
-              <Image
-                src="/app-store-badge.webp"
-                alt="Download on the App Store"
-                width={200}
-                height={60}
-                className="h-10 w-auto"
-                sizes="200px"
-                loading="eager"
-              />
+          {/* CTA Button - Mobile */}
+          <div className="flex justify-center">
+            <a
+              href="/waitlist"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              Join the Waitlist
             </a>
           </div>
 
@@ -99,11 +83,11 @@ export function HeroSection() {
         <div className="hidden sm:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Text and Badges */}
           <div className="text-center lg:text-left">
-            {/* App of the Day Badge */}
+            {/* Badge */}
             <div className="flex justify-center lg:justify-start mb-8">
               <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 flex items-center space-x-2 shadow-lg">
                 <Award className="w-4 h-4 text-gray-800" />
-                <span className="text-sm font-medium text-gray-800">Voted App of the Day</span>
+                <span className="text-sm font-medium text-gray-800">AI-Powered Photo Colorization</span>
               </div>
             </div>
 
@@ -114,29 +98,13 @@ export function HeroSection() {
               <div>to Life</div>
             </h1>
 
-            {/* Download Badges - Desktop */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#" className="transition-transform hover:scale-105">
-                <Image
-                  src="/google-play-badge.webp"
-                  alt="Get it on Google Play"
-                  width={200}
-                  height={60}
-                  className="h-14 w-auto"
-                  sizes="200px"
-                  loading="eager"
-                />
-              </a>
-              <a href="#" className="transition-transform hover:scale-105">
-                <Image
-                  src="/app-store-badge.webp"
-                  alt="Download on the App Store"
-                  width={200}
-                  height={60}
-                  className="h-12 w-auto"
-                  sizes="200px"
-                  loading="eager"
-                />
+            {/* CTA Button - Desktop */}
+            <div className="flex justify-center lg:justify-start">
+              <a
+                href="/waitlist"
+                className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Join the Waitlist
               </a>
             </div>
           </div>

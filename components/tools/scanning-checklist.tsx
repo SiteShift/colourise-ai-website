@@ -1,0 +1,326 @@
+"use client"
+
+import { useState } from "react"
+import { Check, Circle, ChevronDown, ChevronUp, Sparkles, AlertTriangle, Download } from "lucide-react"
+
+interface ChecklistItem {
+  id: string
+  text: string
+  tip: string
+  critical?: boolean
+}
+
+interface ChecklistSection {
+  title: string
+  items: ChecklistItem[]
+}
+
+const checklistSections: ChecklistSection[] = [
+  {
+    title: "Before You Start",
+    items: [
+      {
+        id: "clean-scanner",
+        text: "Clean scanner glass thoroughly",
+        tip: "Use a microfiber cloth and glass cleaner. Even small dust particles will appear in your scan.",
+        critical: true
+      },
+      {
+        id: "clean-photo",
+        text: "Gently clean the photograph",
+        tip: "Use a soft brush or compressed air. Never use liquids on the photo surface."
+      },
+      {
+        id: "handle-carefully",
+        text: "Handle photos by edges only",
+        tip: "Oils from fingers can damage old photos. Consider wearing cotton gloves."
+      },
+      {
+        id: "flatten-photo",
+        text: "Flatten curled photos if possible",
+        tip: "Place under heavy books for a few hours. Don't force severely curled photos."
+      }
+    ]
+  },
+  {
+    title: "Scanner Settings",
+    items: [
+      {
+        id: "resolution-300",
+        text: "Set resolution to 300 DPI minimum",
+        tip: "For small photos or those you want to enlarge, use 600 DPI. Higher = better for AI colorization.",
+        critical: true
+      },
+      {
+        id: "color-mode",
+        text: "Scan in color mode (not grayscale)",
+        tip: "Even for B&W photos, color mode captures more tonal information for better colorization results."
+      },
+      {
+        id: "file-format",
+        text: "Save as TIFF or PNG (not JPEG)",
+        tip: "TIFF preserves all quality. JPEG compression loses detail. PNG is a good compromise."
+      },
+      {
+        id: "no-auto-correct",
+        text: "Disable auto-correction features",
+        tip: "Turn off auto-color, auto-contrast, and sharpening. These can interfere with AI processing."
+      }
+    ]
+  },
+  {
+    title: "Scanning Process",
+    items: [
+      {
+        id: "preview-first",
+        text: "Do a preview scan first",
+        tip: "Check alignment and settings before the final high-resolution scan."
+      },
+      {
+        id: "align-straight",
+        text: "Align photo straight on scanner bed",
+        tip: "Use the scanner edge as a guide. Crooked scans may need rotation that reduces quality."
+      },
+      {
+        id: "close-lid-gently",
+        text: "Close scanner lid gently",
+        tip: "For thick or mounted photos, don't force the lid. Use a dark cloth to block light instead."
+      },
+      {
+        id: "full-photo-visible",
+        text: "Include small border around photo",
+        tip: "Scan slightly beyond photo edges. You can crop later, but you can't add what wasn't scanned."
+      }
+    ]
+  },
+  {
+    title: "After Scanning",
+    items: [
+      {
+        id: "check-quality",
+        text: "Zoom to 100% and check for issues",
+        tip: "Look for dust spots, scratches, or blurriness that might affect colorization.",
+        critical: true
+      },
+      {
+        id: "backup-original",
+        text: "Save an unedited backup copy",
+        tip: "Keep the original scan before any editing. Store in multiple locations."
+      },
+      {
+        id: "name-files",
+        text: "Use descriptive file names",
+        tip: "Include date, subject, and location if known. Example: '1952_grandma_wedding_chicago.tiff'"
+      },
+      {
+        id: "store-safely",
+        text: "Return photo to safe storage",
+        tip: "Store in acid-free sleeves or albums, away from light, heat, and humidity."
+      }
+    ]
+  }
+]
+
+export function ScanningChecklist() {
+  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set())
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(checklistSections.map(s => s.title))
+  )
+
+  const toggleItem = (id: string) => {
+    const newChecked = new Set(checkedItems)
+    if (newChecked.has(id)) {
+      newChecked.delete(id)
+    } else {
+      newChecked.add(id)
+    }
+    setCheckedItems(newChecked)
+  }
+
+  const toggleSection = (title: string) => {
+    const newExpanded = new Set(expandedSections)
+    if (newExpanded.has(title)) {
+      newExpanded.delete(title)
+    } else {
+      newExpanded.add(title)
+    }
+    setExpandedSections(newExpanded)
+  }
+
+  const totalItems = checklistSections.reduce((acc, section) => acc + section.items.length, 0)
+  const completedItems = checkedItems.size
+  const progressPercentage = Math.round((completedItems / totalItems) * 100)
+
+  const resetChecklist = () => {
+    setCheckedItems(new Set())
+  }
+
+  const downloadChecklist = () => {
+    let text = "PHOTO SCANNING CHECKLIST FOR AI COLORIZATION\n"
+    text += "Generated by ColouriseAI (colorizeai.app)\n\n"
+
+    checklistSections.forEach(section => {
+      text += `\n${section.title.toUpperCase()}\n${"=".repeat(section.title.length)}\n\n`
+      section.items.forEach(item => {
+        const checked = checkedItems.has(item.id) ? "[x]" : "[ ]"
+        text += `${checked} ${item.text}${item.critical ? " (CRITICAL)" : ""}\n`
+        text += `    Tip: ${item.tip}\n\n`
+      })
+    })
+
+    const blob = new Blob([text], { type: "text/plain" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "photo-scanning-checklist.txt"
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  return (
+    <div className="space-y-8">
+      {/* Progress Header */}
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 border border-purple-100 dark:border-purple-800">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-gray-900 dark:text-white">
+            Your Progress
+          </h3>
+          <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            {progressPercentage}%
+          </span>
+        </div>
+        <div className="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-full transition-all duration-500"
+            style={{ width: `${progressPercentage}%` }}
+          />
+        </div>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          {completedItems} of {totalItems} items completed
+        </p>
+      </div>
+
+      {/* Checklist Sections */}
+      <div className="space-y-4">
+        {checklistSections.map((section) => {
+          const sectionCompleted = section.items.filter(item => checkedItems.has(item.id)).length
+          const isExpanded = expandedSections.has(section.title)
+
+          return (
+            <div
+              key={section.title}
+              className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+            >
+              <button
+                onClick={() => toggleSection(section.title)}
+                className="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                    sectionCompleted === section.items.length
+                      ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
+                      : "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400"
+                  }`}>
+                    {sectionCompleted === section.items.length ? (
+                      <Check className="w-4 h-4" />
+                    ) : (
+                      `${sectionCompleted}/${section.items.length}`
+                    )}
+                  </div>
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {section.title}
+                  </span>
+                </div>
+                {isExpanded ? (
+                  <ChevronUp className="w-5 h-5 text-gray-400" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-400" />
+                )}
+              </button>
+
+              {isExpanded && (
+                <div className="border-t border-gray-200 dark:border-gray-700">
+                  {section.items.map((item) => {
+                    const isChecked = checkedItems.has(item.id)
+
+                    return (
+                      <div
+                        key={item.id}
+                        className={`p-4 border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors ${
+                          isChecked ? "bg-green-50 dark:bg-green-900/10" : ""
+                        }`}
+                      >
+                        <button
+                          onClick={() => toggleItem(item.id)}
+                          className="w-full flex items-start gap-3 text-left"
+                        >
+                          <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors ${
+                            isChecked
+                              ? "bg-green-500 border-green-500 text-white"
+                              : "border-gray-300 dark:border-gray-600"
+                          }`}>
+                            {isChecked && <Check className="w-4 h-4" />}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`font-medium ${
+                                isChecked
+                                  ? "text-green-700 dark:text-green-400 line-through"
+                                  : "text-gray-900 dark:text-white"
+                              }`}>
+                                {item.text}
+                              </span>
+                              {item.critical && (
+                                <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-medium rounded-full flex items-center gap-1">
+                                  <AlertTriangle className="w-3 h-3" />
+                                  Critical
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                              {item.tip}
+                            </p>
+                          </div>
+                        </button>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4">
+        <button
+          onClick={downloadChecklist}
+          className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2"
+        >
+          <Download className="w-5 h-5" />
+          Download Checklist
+        </button>
+        <button
+          onClick={resetChecklist}
+          className="flex-1 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+        >
+          Reset Checklist
+        </button>
+      </div>
+
+      {/* Success Message */}
+      {progressPercentage === 100 && (
+        <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800 text-center">
+          <Sparkles className="w-10 h-10 text-green-500 mx-auto mb-3" />
+          <h3 className="font-bold text-green-800 dark:text-green-400 mb-2">
+            All Done!
+          </h3>
+          <p className="text-green-700 dark:text-green-300">
+            Your scan should be optimized for AI colorization. Time to colorize!
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}

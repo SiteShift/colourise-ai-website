@@ -3,15 +3,19 @@ import { InteractiveShowcaseSection } from "@/components/interactive-showcase-se
 import { FeaturesSection } from "@/components/features-section"
 import { GallerySection } from "@/components/gallery-section"
 import { SocialProofSection } from "@/components/social-proof-section"
+import { ResourcesSection } from "@/components/resources-section"
 import { Footer } from "@/components/footer"
+import { HomepageSchema } from "@/components/homepage-schema"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      <HomepageSchema />
       <HeroSection />
       <InteractiveShowcaseSection />
       <FeaturesSection />
       <GallerySection />
+      <ResourcesSection />
       <SocialProofSection />
       <Footer />
     </main>

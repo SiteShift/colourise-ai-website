@@ -8,28 +8,29 @@ import Image from "next/image"
 
 const footerLinks = {
   product: [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Gallery", href: "#gallery" },
+    { label: "Join Waitlist", href: "/waitlist" },
+    { label: "Free Tools", href: "/tools" },
   ],
-  support: [
-    { label: "Help Center", href: "/help" },
+  guides: [
+    { label: "All Guides", href: "/guides" },
+    { label: "AI Colorization Guide", href: "/guides/ai-photo-colorization" },
+    { label: "Photo Restoration Guide", href: "/guides/photo-restoration" },
+    { label: "Use Cases", href: "/guides/use-cases" },
+  ],
+  resources: [
+    { label: "Blog", href: "/blog" },
+    { label: "Color Palette Tool", href: "/tools/historical-color-palette" },
+    { label: "Photo Date Estimator", href: "/tools/photo-date-estimator" },
     { label: "Contact Us", href: "/contact" },
-    { label: "API Documentation", href: "/docs" },
-    { label: "System Status", href: "/status" },
   ],
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press Kit", href: "/press" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookies" },
-    { label: "GDPR", href: "/gdpr" },
   ],
 }
 
@@ -51,7 +52,9 @@ export function Footer() {
           <p className="text-lg text-gray-700 mb-8">
             Download ColouriseAI now and reclaim your family's vibrant history—forever.
           </p>
-          <Button className="brand-gradient text-white text-lg px-8 py-3">Download Free</Button>
+          <Link href="/waitlist">
+            <Button className="brand-gradient text-white text-lg px-8 py-3">Join the Waitlist</Button>
+          </Link>
         </div>
       </section>
 
@@ -103,9 +106,9 @@ export function Footer() {
 
               {/* Links Columns */}
               <div>
-                <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
+                <h4 className="font-semibold text-gray-900 mb-4">Guides</h4>
                 <ul className="space-y-3">
-                  {footerLinks.product.map((link) => (
+                  {footerLinks.guides.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
@@ -119,9 +122,9 @@ export function Footer() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-900 mb-4">Support</h4>
+                <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
                 <ul className="space-y-3">
-                  {footerLinks.support.map((link) => (
+                  {footerLinks.resources.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
@@ -153,11 +156,7 @@ export function Footer() {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <Mail className="w-4 h-4" />
-                    <span>hello@colouriseai.com</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>hello@colorizeai.app</span>
                   </div>
                 </div>
               </div>

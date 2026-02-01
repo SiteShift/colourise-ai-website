@@ -24,9 +24,9 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { href: "#features", label: "Features" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#how-it-works", label: "How It Works" },
+    { href: "/guides", label: "Guides" },
+    { href: "/tools", label: "Free Tools" },
+    { href: "/blog", label: "Blog" },
   ]
 
   const toggleMobileMenu = () => {
@@ -56,20 +56,24 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop Download Button */}
+          {/* Desktop CTA Button */}
           <div className="hidden lg:flex">
-            <RainbowButton className="text-sm px-4 py-2 h-9">
-              <Download className="w-3 h-3 mr-2" />
-              Download
-            </RainbowButton>
+            <Link href="/waitlist">
+              <RainbowButton className="text-sm px-4 py-2 h-9">
+                <Download className="w-3 h-3 mr-2" />
+                Join Waitlist
+              </RainbowButton>
+            </Link>
           </div>
 
-          {/* Mobile: Download Button + Menu Button */}
+          {/* Mobile: CTA Button + Menu Button */}
           <div className="lg:hidden flex items-center space-x-3">
-            {/* Mobile Download Button */}
-            <RainbowButton className="text-sm px-4 py-2 h-9">
-              Download
-            </RainbowButton>
+            {/* Mobile CTA Button */}
+            <Link href="/waitlist">
+              <RainbowButton className="text-sm px-4 py-2 h-9">
+                Join Waitlist
+              </RainbowButton>
+            </Link>
             
             {/* Mobile Menu Button */}
             <Button
