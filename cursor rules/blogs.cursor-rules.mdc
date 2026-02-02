@@ -1,0 +1,176 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# ColorizeAI Copywriting-for-SEO Playbook (2025 Edition)
+
+> **Purpose:** Drop this file into your Cursor "Rules" panel (or any internal style-guide) so every AI-assisted draft hits Google's Helpful-Content criteria, satisfies E-E-A-T, and feels authored by a single credible persona.
+
+---
+
+## 👤 Author Persona Blueprint
+
+| Attribute | Recommendation | SEO / EEAT Reason |
+|-----------|----------------|------------------|
+| **Name** | **Dr. Eleanor "Ellie" Grant** | Distinct, no SERP collisions |
+| **Title** | Founder & Chief Imaging Scientist, ColorizeAI | Signals authority + hands-on experience |
+| **Credentials** | • PhD Computer Vision (UCL) <br>• Former Digital Preservation Lead, British Library <br>• Published in *CVPR*, *Digital Humanities Quarterly* | Hard credentials → Experience + Expertise |
+| **Back-Story Hook** | Digitised 250k WWII negatives with AI during PhD; founded ColorizeAI after watching families cry over first color reveals. | Emotional narrative, StoryBrand positioning |
+| **Tone Guidelines** | • Conversational yet data-driven <br>• "We" for team, "you" for reader <br>• Minimal jargon (define terms in-line) | Balances clarity & authority |
+| **Author Schema Mark-up** | `@type:"Person"` → `name`, `sameAs` (LinkedIn, ORCID), `affiliation`, `knowsAbout` (photo colorization, computer vision, digital preservation) | Boosts rich-result trust signals |
+
+### 🎯 **SILO-SPECIFIC EXPERTISE POSITIONING**
+
+**Dr. Grant's Authority Varies by Content Silo** (for topical authority):
+
+| Content Silo | Dr. Grant's Positioning | Example Opening |
+|--------------|------------------------|-----------------|
+| **Fundamentals & Technical** | Algorithm Developer & Researcher | "As someone who developed colorization algorithms during my PhD..." |
+| **Photo Restoration** | Digital Preservation Expert | "From my years leading digital preservation at the British Library..." |
+| **Family & Genealogy** | Memory Preservation Advocate | "I've watched thousands of families reconnect with their heritage..." |
+| **Historical & Educational** | Academic Researcher & Archivist | "Working with historical collections taught me that accuracy matters..." |
+| **Tool Comparisons** | Industry Analyst & Lab Tester | "Having tested every major colorization tool in our research lab..." |
+| **Professional Applications** | Business Consultant & Technical Advisor | "When consulting for museums and institutions, I've learned..." |
+
+**Usage Rule**: Each article MUST include one silo-appropriate Dr. Grant positioning statement within the first 200 words.
+
+---
+
+## 🛑 Why Fixed Templates Can Backfire
+
+Google's 2025 Helpful-Content system detects boiler-plate footprints.  
+If every post = **Pain → Agitate → Mechanism → Proof → CTA**, rankings stall.
+
+### Non-Negotiable SEO Elements (must appear)
+
+- Keyword in H1 + meta-title  
+- Search-intent match in first 100 words  
+- Helpful sub-heads (H2/H3)  
+- Visual proof block (before/after slider)  
+- Schema (FAQ, HowTo, ImageObject)  
+- Internal links → pillar page **and** product page
+- **MANDATORY APP DOWNLOAD CTA** (see conversion strategy below)
+
+### Flexible Elements (rotate or shuffle)
+
+| Variation Axis | Options |
+|----------------|---------|
+| **Lead Style** | Story · Problem-Solution · Statistic/News · Offer · Secret/Mechanism · proclamation |
+| **Hook Device** | Mini-anecdote · surprising stat · direct question |
+| **Proof Type** | Testimonial · case-study GIF · lab result |
+| **CTA Copy** | "Download ColorizeAI Free" · "Get ColorizeAI on App Store" · "Try ColorizeAI - Download Now" |
+| **Urgency Device** | Limited free credits · "Join 2M+ users" · "Featured App of the Day" |
+
+Use this list as a **pre-flight inspection**, not a paragraph-by-paragraph script.
+
+---
+
+## 📱 **CRITICAL: MOBILE APP DOWNLOAD CONVERSION STRATEGY**
+
+### **🎯 PRIMARY CONVERSION GOAL: APP DOWNLOADS ONLY**
+
+**Every article MUST drive to mobile app download - this is the ONLY conversion goal.**
+
+#### **Universal CTA Requirements:**
+- **Placement**: Minimum 2 CTAs per article (mid-content + end)
+- **Target**: App Store + Google Play Store downloads
+- **Tracking**: Include UTM parameters for blog attribution
+- **Design**: App store badges + compelling copy
+
+#### **CTA Copy Variations** (rotate to prevent patterns):
+
+| CTA Style | Example Copy | When to Use |
+|-----------|-------------|-------------|
+| **Benefit-Focused** | "Transform your family photos in seconds - Download ColorizeAI Free" | Emotional content (family, memories) |
+| **Feature-Focused** | "Get AI-powered colorization on your phone - Download ColorizeAI" | Technical content (how-to, comparisons) |
+| **Social Proof** | "Join 2M+ users bringing photos to life - Download ColorizeAI" | Authority content (reviews, case studies) |
+| **Urgency** | "Download ColorizeAI now - First 5 photos FREE" | Time-sensitive content (news, trends) |
+| **Problem-Solution** | "Stop struggling with complicated software - Download ColorizeAI" | Problem-focused content (pain points) |
+
+#### **CTA Placement Strategy:**
+1. **Mid-Article CTA** (after problem/benefit section): Soft introduction to app
+2. **End-Article CTA** (final call): Strong conversion push with urgency
+3. **Sidebar CTA** (optional): Persistent visibility during scroll
+
+#### **App Store Badge Requirements:**
+- Always include BOTH App Store + Google Play badges
+- Use official store badges (not custom designs)
+- Include "Download on" + "Get it on" official text
+- Link directly to app store pages with UTM tracking
+
+---
+
+## 🔄 How to Program Cursor for Unique-yet-Optimized Posts
+
+```jsonc
+// 1. Randomize lead style + silo positioning
+{ 
+  "lead_type": ["Story", "Problem-Solution", "Statistic News"],
+  "authority_positioning": "silo_specific_dr_grant_intro"
+}
+
+// 2. Mandatory app download CTAs
+{% if word_count > 800 %}
+  {{ include 'mid_article_app_cta' }}
+{% endif %}
+{{ include 'end_article_app_cta' }}
+
+// 3. Inject dynamic tokens
+Processing time: {{processing_time_ms}} ms  
+Color accuracy: {{color_accuracy_pct}} %
+App downloads: {{total_downloads}} users
+Content-block library: store 30 proof blocks (testimonials, citations). Select randomly.
+
+Depth & Tone sliders: {{depth}} (1–3), {{tone}} (warm ↔ analytical) to vary diction.
+```
+
+## 🏆 Updated Optimal Style Guidelines
+
+| Stage | Purpose | Mandatory? | Variations / Notes |
+|-------|---------|------------|-------------------|
+| **Headline** | Stop scroll, include primary KW | ✓ | Aim Coschedule ≥ 72 |
+| **Lead + Authority** | Signal relevance + Dr. Grant positioning | ✓ | Choose silo-specific positioning |
+| **Desire Amplification** | Deepen the "why" | ✓ | Fascination bullets or data card or micro-story |
+| **Mechanism + Proof** | Explain tech; show results | ✓ | Testimonial, case-study GIF, or lab stat |
+| **Mid-Article App CTA** | First conversion opportunity | ✓ | Benefit-focused, natural integration |
+| **SEO/Schema Block** | Feed AI search | ✓ | 3–7 FAQs or listicle; HowTo steps where relevant |
+| **Final App CTA** | Primary conversion goal | ✓ | Strong urgency + both app stores |
+| **Optional Modules** | Freshness nuggets | – | "This Week in AI Imaging" sidebar; "Links We Love" |
+
+## 🧠 Ranking Elements Map (2025)
+
+| Factor | Placement in Post |
+|--------|------------------|
+| **Quality / Helpfulness** | Original demo GIF, checklist, alt text |
+| **E-E-A-T** | Silo-specific Dr. Grant positioning + sidebar author bio |
+| **UX Signals** | Sub-100 ms CLS; compressed WebP; dark-mode CSS |
+| **Conversion Signals** | Clear app download path + store badges |
+| **Schema** | FAQPage, HowTo, ImageObject JSON-LD |
+| **Social Signals** | "Share to Reddit/TikTok" under slider |
+
+## 📋 Copywriter's Pre-Flight Checklist
+
+- [ ] **Keyword & Intent**: Does H1 mirror search intent?
+- [ ] **Dr. Grant Authority**: Silo-appropriate positioning in first 200 words?
+- [ ] **Unique Data**: At least one dynamic token or original stat
+- [ ] **Variation**: Lead style differs from last 3 published posts
+- [ ] **Proof Block**: One evidence block (GIF/testimonial/lab result)
+- [ ] **FAQ Schema**: 3+ genuine Q&As inserted
+- [ ] **Mid-Article App CTA**: Benefit-focused download prompt
+- [ ] **Final App CTA**: Strong conversion with both app stores
+- [ ] **Internal Links**: Pillar page + related content anchored
+- [ ] **Media**: Before/after slider with ARIA label
+- [ ] **Coschedule Score**: 72+
+
+**Pass = publish; Fail = iterate.**
+
+## 🔚 Final Take-Aways
+
+- **Templates ≠ Footprints** when you randomize leads, proof, CTAs, and inject real data
+- **Stick to non-negotiable SEO blocks**; vary everything else
+- **Dr. Grant's expertise must match content silo** for maximum topical authority
+- **Every article MUST drive app downloads** - this is the only conversion goal
+- **Always run the E-E-A-T/Checklist pass**: Does Dr. Grant appear with silo-appropriate authority?
+
+Maintain quality + variability and ColorizeAI stays Google-friendly and conversion-focused.
