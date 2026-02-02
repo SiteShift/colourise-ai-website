@@ -3,8 +3,8 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | ColouriseAI",
-  description: "Terms and conditions for using ColouriseAI photo colorization service. Please read these terms carefully before using our service.",
+  title: "Terms of Service | ColorizeAI",
+  description: "Terms and conditions for using ColorizeAI photo colorization service. Please read these terms carefully before using our service.",
   alternates: {
     canonical: "/terms",
   },
@@ -22,14 +22,14 @@ export default function TermsPage() {
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-600 leading-relaxed">
-                By accessing or using ColouriseAI ("the Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
+                By accessing or using ColorizeAI ("the Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Description of Service</h2>
               <p className="text-gray-600 leading-relaxed">
-                ColouriseAI provides AI-powered photo colorization services that transform black and white or grayscale photographs into color images. The service is provided "as is" and results may vary depending on image quality and content.
+                ColorizeAI provides AI-powered photo colorization services that transform black and white or grayscale photographs into color images. The service is provided "as is" and results may vary depending on image quality and content.
               </p>
             </section>
 
@@ -51,21 +51,21 @@ export default function TermsPage() {
                 <strong>Your Content:</strong> You retain all rights to the photos you upload and the colorized versions you create. By using our service, you grant us a limited license to process your images solely for the purpose of providing the colorization service.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                <strong>Our Technology:</strong> The ColouriseAI service, including our AI models, software, and website, are protected by intellectual property laws. You may not copy, modify, or distribute our technology.
+                <strong>Our Technology:</strong> The ColorizeAI service, including our AI models, software, and website, are protected by intellectual property laws. You may not copy, modify, or distribute our technology.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Accuracy Disclaimer</h2>
               <p className="text-gray-600 leading-relaxed">
-                AI colorization is an interpretation based on machine learning algorithms. The colors applied to your photos are predictions and may not represent the actual historical colors of the original scene. ColouriseAI makes no guarantees about the accuracy of colorization results.
+                AI colorization is an interpretation based on machine learning algorithms. The colors applied to your photos are predictions and may not represent the actual historical colors of the original scene. ColorizeAI makes no guarantees about the accuracy of colorization results.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Limitation of Liability</h2>
               <p className="text-gray-600 leading-relaxed">
-                To the fullest extent permitted by law, ColouriseAI shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service. Our total liability shall not exceed the amount you paid for the service in the past 12 months.
+                To the fullest extent permitted by law, ColorizeAI shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service. Our total liability shall not exceed the amount you paid for the service in the past 12 months.
               </p>
             </section>
 

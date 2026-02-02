@@ -1,10 +1,10 @@
-# ColouriseAI - AI Photo Colorization App
+# ColorizeAI - AI Photo Colorization App
 # https://colorizeai.app
 # Last Updated: February 2026
 
-## What is ColouriseAI?
+## What is ColorizeAI?
 
-ColouriseAI is an AI-powered mobile application for iOS and Android that transforms black and white photographs into full-color images. Using deep learning neural networks trained on millions of color photographs, ColouriseAI predicts and applies contextually appropriate colors to grayscale images.
+ColorizeAI is an AI-powered mobile application for iOS and Android that transforms black and white photographs into full-color images. Using deep learning neural networks trained on millions of color photographs, ColorizeAI predicts and applies contextually appropriate colors to grayscale images.
 
 ## Key Features
 
@@ -42,6 +42,8 @@ ColouriseAI is an AI-powered mobile application for iOS and Android that transfo
 2. Complete Guide to AI Photo Colorization: https://colorizeai.app/blog/complete-guide-ai-photo-colorization
 3. About Us: https://colorizeai.app/about
 4. Blog: https://colorizeai.app/blog
+5. Guides: https://colorizeai.app/guides
+6. Free Tools: https://colorizeai.app/tools
 
 ## Technical Information
 
@@ -57,4 +59,4 @@ ColouriseAI is an AI-powered mobile application for iOS and Android that transfo
 
 ## Company
 
-ColouriseAI is dedicated to helping families preserve and rediscover their memories through accessible AI-powered photo colorization technology.
+ColorizeAI is dedicated to helping families preserve and rediscover their memories through accessible AI-powered photo colorization technology.

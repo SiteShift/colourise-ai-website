@@ -4,10 +4,10 @@ import { ArrowRight, Palette, Calendar, Calculator, SplitSquareHorizontal, Check
 import { getAllTools } from "@/lib/content-hub"
 
 export const metadata: Metadata = {
-  title: "Free AI Photo Tools | ColouriseAI",
+  title: "Free AI Photo Tools | ColorizeAI",
   description: "Free tools to help with your photo colorization and restoration projects. Historical color palettes, photo date estimator, resolution calculator, and more.",
   openGraph: {
-    title: "Free AI Photo Tools | ColouriseAI",
+    title: "Free AI Photo Tools | ColorizeAI",
     description: "Free tools to help with your photo colorization and restoration projects. Historical color palettes, photo date estimator, resolution calculator, and more.",
     type: "website",
   },
@@ -173,7 +173,7 @@ export default function ToolsPage() {
             Ready to Colorize Your Photos?
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-8">
-            These tools work great alongside ColouriseAI. Join our waitlist to be first to colorize your black and white photos.
+            These tools work great alongside ColorizeAI. Join our waitlist to be first to colorize your black and white photos.
           </p>
           <Link
             href="/waitlist"

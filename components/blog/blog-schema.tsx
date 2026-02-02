@@ -53,7 +53,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
       "jobTitle": post.author.title,
       "description": post.author.bio,
       "image": `${baseUrl}${post.author.avatar}`,
-      "url": `${baseUrl}/about/dr-eleanor-grant`,
+      "url": `${baseUrl}/about`,
       "sameAs": [
         "https://linkedin.com/in/eleanor-grant-colorizeai",
         "https://orcid.org/0000-0002-1234-5678"
@@ -68,7 +68,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
       "affiliation": {
         "@type": "Organization",
         "name": "ColorizeAI",
-        "url": "https://colorizeai.com"
+        "url": "https://colorizeai.app"
       }
     },
     "publisher": {
@@ -76,14 +76,15 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
       "name": "ColorizeAI",
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/colourise-ai-logo.webp`,
+        "url": `${baseUrl}/colorize-ai-logo.webp`,
         "width": 240,
         "height": 48
       },
-      "url": "https://colorizeai.com",
+      "url": "https://colorizeai.app",
       "sameAs": [
-        "https://twitter.com/ColorizeAI",
-        "https://facebook.com/ColorizeAI",
+        "https://twitter.com/colorizeai",
+        "https://facebook.com/colorizeai",
+        "https://instagram.com/colorizeai",
         "https://linkedin.com/company/colorizeai"
       ]
     },

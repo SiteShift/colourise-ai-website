@@ -4,10 +4,10 @@ import { ArrowRight, Palette, Wrench, Users, Scale, Sparkles } from "lucide-reac
 import { getAllPillars } from "@/lib/content-hub"
 
 export const metadata: Metadata = {
-  title: "Photo Colorization & Restoration Guides | ColouriseAI",
+  title: "Photo Colorization & Restoration Guides | ColorizeAI",
   description: "Comprehensive guides to AI photo colorization, restoration, and enhancement. Learn from experts with step-by-step tutorials, tips, and best practices.",
   openGraph: {
-    title: "Photo Colorization & Restoration Guides | ColouriseAI",
+    title: "Photo Colorization & Restoration Guides | ColorizeAI",
     description: "Comprehensive guides to AI photo colorization, restoration, and enhancement. Learn from experts with step-by-step tutorials, tips, and best practices.",
     type: "website",
   },

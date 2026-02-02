@@ -1,4 +1,4 @@
-# ColouriseAI Topical Authority Architecture
+# ColorizeAI Topical Authority Architecture
 ## Complete Content & Internal Linking Strategy
 
 ---

@@ -1,4 +1,4 @@
-# ColouriseAI SEO Implementation Plan
+# ColorizeAI SEO Implementation Plan
 ## Objective: Scale to 5,000+ Daily Organic Visitors
 
 **Version:** 4.0 (Topical Authority Implementation)

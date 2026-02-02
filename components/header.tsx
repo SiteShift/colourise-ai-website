@@ -40,8 +40,8 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/colourise-ai-logo.webp"
-              alt="ColouriseAI"
+              src="/colorize-ai-logo.webp"
+              alt="ColorizeAI"
               width={100}
               height={20}
               className="h-5 w-auto"

@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: `${post.title} | ColouriseAI Blog`,
+    title: `${post.title} | ColorizeAI Blog`,
     description: post.excerpt,
     keywords: post.tags.join(", "),
     authors: [{ name: post.author.name }],
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       authors: [post.author.name],
       images: [
         {
-          url: post.featuredImage,
+          url: `https://colorizeai.app${post.featuredImage}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.featuredImage],
+      images: [`https://colorizeai.app${post.featuredImage}`],
     },
   }
 }
@@ -201,7 +201,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="mt-20 mb-16">
                 <BlogAppDownloadCTA
                   variant="end-article"
-                  copy="Join the ColouriseAI Waitlist - Be First to Colorize"
+                  copy="Join the ColorizeAI Waitlist - Be First to Colorize"
                   style="urgency"
                 />
               </div>

@@ -39,8 +39,8 @@ export default function WaitlistPage() {
         {/* Logo */}
         <div className="mb-8">
           <Image
-            src="/colourise-ai-logo.webp"
-            alt="ColouriseAI"
+            src="/colorize-ai-logo.webp"
+            alt="ColorizeAI"
             width={200}
             height={40}
             className="h-10 w-auto mx-auto"
@@ -59,7 +59,7 @@ export default function WaitlistPage() {
                 Join the Waitlist
               </h1>
               <p className="text-xl text-gray-600 max-w-md mx-auto">
-                Be the first to know when ColouriseAI launches. Transform your black & white photos into stunning color with AI.
+                Be the first to know when ColorizeAI launches. Transform your black & white photos into stunning color with AI.
               </p>
             </div>
 
@@ -110,7 +110,7 @@ export default function WaitlistPage() {
               You're on the list!
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              We'll notify you at <span className="font-semibold">{email}</span> when ColouriseAI launches.
+              We'll notify you at <span className="font-semibold">{email}</span> when ColorizeAI launches.
             </p>
             <Link href="/">
               <Button variant="outline" size="lg">
@@ -123,7 +123,7 @@ export default function WaitlistPage() {
         {/* Social Proof */}
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-sm text-gray-500">
-            Join thousands of others waiting for ColouriseAI
+            Join thousands of others waiting for ColorizeAI
           </p>
         </div>
       </div>

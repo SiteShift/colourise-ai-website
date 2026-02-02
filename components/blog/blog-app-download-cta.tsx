@@ -34,7 +34,7 @@ const CTAContent = {
   },
   "urgency": {
     icon: Sparkles,
-    headline: "Be First to Try ColouriseAI",
+    headline: "Be First to Try ColorizeAI",
     buttonText: "Get Early Access",
     accent: "from-pink-500 to-purple-600"
   },

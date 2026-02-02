@@ -4,23 +4,25 @@ export function HomepageSchema() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "ColouriseAI",
-    "alternateName": "ColorizeAI",
+    "name": "ColorizeAI",
+    "alternateName": ["Colorize AI", "ColorizeAI App"],
     "url": baseUrl,
-    "logo": `${baseUrl}/colourise-ai-logo.webp`,
+    "logo": `${baseUrl}/colorize-ai-logo.webp`,
     "description": "AI-powered photo colorization app that transforms black and white photos into stunning color images",
     "email": "hello@colorizeai.app",
+    "foundingDate": "2024",
     "sameAs": [
-      "https://twitter.com/colouriseai",
-      "https://facebook.com/colouriseai",
-      "https://instagram.com/colouriseai"
+      "https://twitter.com/colorizeai",
+      "https://facebook.com/colorizeai",
+      "https://instagram.com/colorizeai",
+      "https://youtube.com/colorizeai"
     ]
   }
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ColouriseAI",
+    "name": "ColorizeAI",
     "url": baseUrl,
     "description": "Transform black and white photos into color with AI",
     "potentialAction": {
@@ -36,7 +38,7 @@ export function HomepageSchema() {
   const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "ColouriseAI",
+    "name": "ColorizeAI",
     "operatingSystem": ["iOS", "Android"],
     "applicationCategory": "PhotographyApplication",
     "offers": {

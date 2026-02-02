@@ -9,6 +9,7 @@ import { PhotoDateEstimator } from "@/components/tools/photo-date-estimator"
 import { ResolutionCalculator } from "@/components/tools/resolution-calculator"
 import { BeforeAfterGenerator } from "@/components/tools/before-after-generator"
 import { ScanningChecklist } from "@/components/tools/scanning-checklist"
+import { ToolSchema } from "@/components/tools/tool-schema"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -26,15 +27,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!tool) {
     return {
-      title: "Tool Not Found | ColouriseAI",
+      title: "Tool Not Found | ColorizeAI",
     }
   }
 
   return {
-    title: `${tool.name} - Free Tool | ColouriseAI`,
+    title: `${tool.name} - Free Tool | ColorizeAI`,
     description: tool.description,
     openGraph: {
-      title: `${tool.name} | ColouriseAI`,
+      title: `${tool.name} | ColorizeAI`,
       description: tool.description,
       type: "website",
     },
@@ -66,7 +67,11 @@ export default async function ToolPage({ params }: PageProps) {
     .slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-950">
+    <>
+      {/* Schema Markup */}
+      <ToolSchema tool={{ title: tool.name, description: tool.description, slug: tool.slug }} />
+
+      <main className="min-h-screen bg-white dark:bg-gray-950">
       {/* Breadcrumb */}
       <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-4 py-3">
@@ -156,11 +161,12 @@ export default async function ToolPage({ params }: PageProps) {
             href="/waitlist"
             className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
           >
-            Try ColouriseAI
+            Try ColorizeAI
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
     </main>
+    </>
   )
 }

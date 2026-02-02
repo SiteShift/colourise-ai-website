@@ -36,7 +36,7 @@ export function BlogStickyCTA() {
                       <Sparkles className="w-4 h-4 text-white" />
                     </div>
                     <h3 className="font-bold text-gray-900 dark:text-white text-sm">
-                      ColouriseAI
+                      ColorizeAI
                     </h3>
                   </div>
                   <button
@@ -93,7 +93,7 @@ export function BlogStickyCTA() {
                   <Sparkles className="w-3 h-3 text-white" />
                 </div>
                 <span className="text-sm font-medium text-gray-900 dark:text-white">
-                  ColouriseAI
+                  ColorizeAI
                 </span>
               </button>
             )}

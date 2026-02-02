@@ -54,7 +54,7 @@ export function HeroSection() {
               <div className="relative z-20">
                 <Image
                   src="/iphone-mockup.webp"
-                  alt="ColouriseAI iPhone app showing before and after photo colorization"
+                  alt="ColorizeAI iPhone app showing before and after photo colorization"
                   width={500}
                   height={1000}
                   className="object-contain w-[500px] h-auto drop-shadow-2xl"
@@ -67,7 +67,7 @@ export function HeroSection() {
               <div className="absolute top-8 -right-10 z-10 transform rotate-12">
                 <Image
                   src="/iphone-mockup-2.webp"
-                  alt="ColouriseAI iPhone app showing vintage family photo"
+                  alt="ColorizeAI iPhone app showing vintage family photo"
                   width={380}
                   height={760}
                   className="object-contain w-[360px] h-auto drop-shadow-xl"
@@ -116,7 +116,7 @@ export function HeroSection() {
               <div className="relative z-20">
                 <Image
                   src="/iphone-mockup.webp"
-                  alt="ColouriseAI iPhone app showing before and after photo colorization"
+                  alt="ColorizeAI iPhone app showing before and after photo colorization"
                   width={500}
                   height={1000}
                   className="object-contain w-[650px] h-auto drop-shadow-2xl"
@@ -129,7 +129,7 @@ export function HeroSection() {
               <div className="absolute top-16 -right-24 z-10 transform rotate-12">
                 <Image
                   src="/iphone-mockup-2.webp"
-                  alt="ColouriseAI iPhone app showing vintage family photo"
+                  alt="ColorizeAI iPhone app showing vintage family photo"
                   width={380}
                   height={760}
                   className="object-contain w-[450px] h-auto drop-shadow-xl"

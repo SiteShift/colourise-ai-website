@@ -12,14 +12,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "ColouriseAI - Bring Your Memories to Life with AI Photo Colorization",
+  title: "ColorizeAI - Bring Your Memories to Life with AI Photo Colorization",
   description:
     "Transform black & white photos into stunning color images with AI. Restore old family photos, enhance faces, and upscale to 4K quality. Download free and start preserving your memories today.",
   keywords:
-    "AI photo colorization, restore old photos, black and white to color, family memories, historical photos, AI image enhancement",
-  authors: [{ name: "ColouriseAI" }],
-  creator: "ColouriseAI",
-  publisher: "ColouriseAI",
+    "AI photo colorization, restore old photos, black and white to color, family memories, historical photos, AI image enhancement, colorize photos",
+  authors: [{ name: "ColorizeAI" }],
+  creator: "ColorizeAI",
+  publisher: "ColorizeAI",
   formatDetection: {
     email: false,
     address: false,
@@ -29,18 +29,22 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
-    title: "ColouriseAI - Bring Your Memories to Life with AI",
+    title: "ColorizeAI - Bring Your Memories to Life with AI",
     description:
       "Transform black & white photos into stunning color images with AI. Restore old family photos and preserve your memories.",
     url: "https://colorizeai.app",
-    siteName: "ColouriseAI",
+    siteName: "ColorizeAI",
     images: [
       {
-        url: "/hero-background.webp",
+        url: "https://colorizeai.app/hero-background.webp",
         width: 1200,
         height: 630,
-        alt: "ColouriseAI - AI Photo Colorization",
+        alt: "ColorizeAI - AI Photo Colorization",
       },
     ],
     locale: "en_US",
@@ -48,10 +52,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ColouriseAI - Bring Your Memories to Life with AI",
+    title: "ColorizeAI - Bring Your Memories to Life with AI",
     description: "Transform black & white photos into stunning color images with AI.",
-    images: ["/hero-background.webp"],
-    creator: "@ColouriseAI",
+    images: ["https://colorizeai.app/hero-background.webp"],
+    creator: "@colorizeai",
   },
   robots: {
     index: true,
@@ -64,7 +68,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

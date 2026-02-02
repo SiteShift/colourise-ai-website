@@ -1,4 +1,4 @@
-# ColouriseAI Robots.txt
+# ColorizeAI Robots.txt
 # https://colorizeai.app/robots.txt
 
 User-agent: *

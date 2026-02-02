@@ -13,7 +13,7 @@ const featuredTestimonials = [
     role: "Mom of 3, Chicago",
     avatar: "/placeholder.svg?height=60&width=60",
     rating: 5,
-    text: "Found a box of my dad's Korean War photos in the basement. Spent $800 on professional restoration before - ColouriseAI did it better in 3 minutes for free. My 85-year-old mom cried when she saw Dad's unit in full color.",
+    text: "Found a box of my dad's Korean War photos in the basement. Spent $800 on professional restoration before - ColorizeAI did it better in 3 minutes for free. My 85-year-old mom cried when she saw Dad's unit in full color.",
     beforeImage: "/placeholder.svg?height=200&width=200",
     afterImage: "/placeholder.svg?height=200&width=200",
     highlight: "Saved $800 vs professional restoration"
@@ -178,7 +178,7 @@ export function SocialProofSection() {
             Trusted by <span className="brand-gradient-text">Millions</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Real people sharing how ColouriseAI helped them rediscover precious family memories.
+            Real people sharing how ColorizeAI helped them rediscover precious family memories.
           </p>
         </div>
 

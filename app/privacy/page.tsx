@@ -3,8 +3,8 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | ColouriseAI",
-  description: "Learn how ColouriseAI handles your photos and personal data. We respect your privacy and are committed to protecting your information.",
+  title: "Privacy Policy | ColorizeAI",
+  description: "Learn how ColorizeAI handles your photos and personal data. We respect your privacy and are committed to protecting your information.",
   alternates: {
     canonical: "/privacy",
   },
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
               <p className="text-gray-600 leading-relaxed">
-                ColouriseAI ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our photo colorization service.
+                ColorizeAI ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our photo colorization service.
               </p>
             </section>
 
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
 
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Photos You Upload</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                When you use ColouriseAI to colorize photos, we process your images to provide the colorization service. We treat your photos with the utmost care and confidentiality.
+                When you use ColorizeAI to colorize photos, we process your images to provide the colorization service. We treat your photos with the utmost care and confidentiality.
               </p>
 
               <h3 className="text-xl font-semibold text-gray-800 mb-3">Account Information</h3>

@@ -9,14 +9,14 @@ import { Footer } from "@/components/footer"
 import { getAllPosts, getAllCategories } from "@/lib/blog-data"
 
 export const metadata: Metadata = {
-  title: "Blog | AI Photo Colorization Tips & Guides | ColouriseAI",
+  title: "Blog | AI Photo Colorization Tips & Guides | ColorizeAI",
   description:
-    "Learn AI photo colorization techniques, restoration tips, and how to bring your old black and white photos to life. Expert tutorials and guides from ColouriseAI.",
+    "Learn AI photo colorization techniques, restoration tips, and how to bring your old black and white photos to life. Expert tutorials and guides from ColorizeAI.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "ColouriseAI Blog - Photo Colorization Tips & Guides",
+    title: "ColorizeAI Blog - Photo Colorization Tips & Guides",
     description:
       "Expert tutorials on AI photo colorization, restoration techniques, and preserving family memories.",
     type: "website",
@@ -36,7 +36,7 @@ export default function BlogPage() {
           {/* Header */}
           <div className="text-center mb-16">
             <Badge className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white border-0 text-sm font-medium px-4 py-2">
-              ColouriseAI Blog
+              ColorizeAI Blog
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               AI Photo Colorization{" "}

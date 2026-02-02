@@ -7,11 +7,11 @@ import { Badge } from "@/components/ui/badge"
 
 // Scene builder images for the final stage
 const SCENE_BUILDER_IMAGES = [
-  "/ColouriseAI image scroll/AI image 1_compressed.webp",
-  "/ColouriseAI image scroll/AI image 2_compressed.webp",
-  "/ColouriseAI image scroll/AI image 3_compressed.webp",
-  "/ColouriseAI image scroll/AI image 4_compressed.webp",
-  "/ColouriseAI image scroll/AI image 5_compressed.webp"
+  "/ColorizeAI image scroll/AI image 1_compressed.webp",
+  "/ColorizeAI image scroll/AI image 2_compressed.webp",
+  "/ColorizeAI image scroll/AI image 3_compressed.webp",
+  "/ColorizeAI image scroll/AI image 4_compressed.webp",
+  "/ColorizeAI image scroll/AI image 5_compressed.webp"
 ]
 
 // Stage labels for UI feedback
@@ -131,7 +131,7 @@ export function FeaturesSection() {
             {/* Layer 1: Original Black & White */}
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src="/ColouriseAI image scroll/first black and white image_compressed.webp"
+                src="/ColorizeAI image scroll/first black and white image_compressed.webp"
                 alt="Original black and white photo"
                 fill
                 className="object-cover"
@@ -152,7 +152,7 @@ export function FeaturesSection() {
               }}
             >
               <Image
-                src="/ColouriseAI image scroll/second coloured image_compressed.webp"
+                src="/ColorizeAI image scroll/second colored image_compressed.webp"
                 alt="Colorized photo"
                 fill
                 className="object-cover"
@@ -179,7 +179,7 @@ export function FeaturesSection() {
               }}
             >
               <Image
-                src="/ColouriseAI image scroll/third face enhancement_compressed.webp"
+                src="/ColorizeAI image scroll/third face enhancement_compressed.webp"
                 alt="Face enhanced photo"
                 fill
                 className="object-cover"
@@ -206,7 +206,7 @@ export function FeaturesSection() {
               }}
             >
               <Image
-                src="/ColouriseAI image scroll/fourth 4k upscale_compressed.webp"
+                src="/ColorizeAI image scroll/fourth 4k upscale_compressed.webp"
                 alt="4K upscaled photo"
                 fill
                 className="object-cover"

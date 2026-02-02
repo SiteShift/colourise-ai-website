@@ -35,10 +35,10 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/colouriseai", label: "Facebook" },
-  { icon: Twitter, href: "https://twitter.com/colouriseai", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/colouriseai", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com/colouriseai", label: "YouTube" },
+  { icon: Facebook, href: "https://facebook.com/colorizeai", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com/colorizeai", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/colorizeai", label: "Instagram" },
+  { icon: Youtube, href: "https://youtube.com/colorizeai", label: "YouTube" },
 ]
 
 export function Footer() {
@@ -50,7 +50,7 @@ export function Footer() {
             Don't Let Your Family Memories Fade Away
           </h2>
           <p className="text-lg text-gray-700 mb-8">
-            Download ColouriseAI now and reclaim your family's vibrant history—forever.
+            Download ColorizeAI now and reclaim your family's vibrant history—forever.
           </p>
           <Link href="/waitlist">
             <Button className="brand-gradient text-white text-lg px-8 py-3">Join the Waitlist</Button>
@@ -67,8 +67,8 @@ export function Footer() {
               <div className="lg:col-span-2">
                 <Link href="/" className="inline-block mb-6">
                   <Image
-                    src="/colourise-ai-logo.webp"
-                    alt="ColouriseAI"
+                    src="/colorize-ai-logo.webp"
+                    alt="ColorizeAI"
                     width={240}
                     height={48}
                     className="h-12 w-auto"
@@ -166,7 +166,7 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="py-6 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-sm text-gray-600">© 2024 ColouriseAI. All rights reserved.</div>
+              <div className="text-sm text-gray-600">© {new Date().getFullYear()} ColorizeAI. All rights reserved.</div>
 
               <div className="flex space-x-6">
                 {footerLinks.legal.map((link) => (

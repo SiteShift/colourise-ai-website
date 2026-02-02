@@ -40,42 +40,42 @@ const FEATURES: Feature[] = [
     title: "Perfect Faces",
     description: "Advanced AI analyzes 47 facial points to restore natural skin tones and authentic features that honor your family's heritage.",
     benefit: "Finally discover if you have your great-grandmother's eyes or your grandfather's smile",
-    iconImage: "/Colourise 6 icon images/Perfect Faces-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/Perfect Faces-Photoroom.webp"
   },
   {
     id: "authentic-colors",
     title: "Period-Accurate Colors", 
     description: "Trained on 2.3M historical color samples to ensure period-accurate results that reflect how your ancestors actually lived.",
     benefit: "Experience the world exactly as your ancestors saw it - vibrant, alive, real",
-    iconImage: "/Colourise 6 icon images/Period-Accurate Colors-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/Period-Accurate Colors-Photoroom.webp"
   },
   {
     id: "instant-results",
     title: "15 Second Processing",
     description: "Professional-quality colorization in seconds using military-grade processing power. No waiting, no complexity.",
     benefit: "Watch your mother cry tears of joy seeing her father in color for her 80th birthday",
-    iconImage: "/Colourise 6 icon images/15 Second Processing-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/15 Second Processing-Photoroom.webp"
   },
   {
     id: "museum-grade",
     title: "Smithsonian Trusted Quality",
     description: "Trusted by Smithsonian and National Archives for historical preservation. Your memories deserve the same quality.",
     benefit: "Honor your ancestors with colors so perfect, historians verify their accuracy",
-    iconImage: "/Colourise 6 icon images/Smithsonian Trusted Quality-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/Smithsonian Trusted Quality-Photoroom.webp"
   },
   {
     id: "damage-repair",
     title: "Fade & Scratch Restoration",
     description: "Restores faded details and damaged areas that other apps miss. Save precious memories before they're lost forever.",
     benefit: "Save family history before those precious photos crumble to dust",
-    iconImage: "/Colourise 6 icon images/Fade & Scratch Restoration-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/Fade & Scratch Restoration-Photoroom.webp"
   },
   {
     id: "superior-ai",
     title: "Next-Generation AI Power",
     description: "40x more processing power than basic colorization apps. Advanced neural networks deliver unmatched quality.",
     benefit: "Why trust your most precious memories to inferior technology?",
-    iconImage: "/Colourise 6 icon images/Next-Generation AI Power-Photoroom.webp"
+    iconImage: "/Colorize 6 icon images/Next-Generation AI Power-Photoroom.webp"
   }
 ] as const
 
@@ -177,7 +177,7 @@ export function InteractiveShowcaseSection() {
       {/* Scroll Expansion Section */}
       <ScrollExpandMedia
         mediaType="image"
-        mediaSrc="/coloured-slide-reveal.webp"
+        mediaSrc="/colored-slide-reveal.webp"
         bgImageSrc="/black-and-white-slide-reveal.webp"
         title="Experience the Magic"
         textBlend={true}
@@ -227,9 +227,9 @@ export function InteractiveShowcaseSection() {
               <div className="aspect-square md:aspect-video w-full relative">
                 <BeforeAfterSlider
                   beforeImage="/slider-black-and-white.webp"
-                  afterImage="/slider-coloured.webp"
-                  beforeAlt="Original black and white photo showcasing ColouriseAI's input"
-                  afterAlt="AI-colorized photo demonstrating ColouriseAI's transformation capabilities"
+                  afterImage="/slider-colored.webp"
+                  beforeAlt="Original black and white photo showcasing ColorizeAI's input"
+                  afterAlt="AI-colorized photo demonstrating ColorizeAI's transformation capabilities"
                   className="rounded-2xl shadow-2xl ring-1 ring-gray-200/50 absolute inset-0 w-full h-full"
                 />
               </div>
@@ -248,7 +248,7 @@ export function InteractiveShowcaseSection() {
           <section className="mb-16 lg:mb-24" aria-labelledby="features-heading">
             <div className="text-center mb-16 lg:mb-20">
               <h3 id="features-heading" className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                Why 2 Million Families Choose ColouriseAI
+                Why 2 Million Families Choose ColorizeAI
               </h3>
               <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 The most advanced AI colorization technology, designed for your precious memories.

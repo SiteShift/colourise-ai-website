@@ -4,8 +4,8 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "About ColouriseAI | Our Mission & Story",
-  description: "Learn about ColouriseAI - helping families preserve and rediscover their memories through AI-powered photo colorization technology.",
+  title: "About ColorizeAI | Our Mission & Story",
+  description: "Learn about ColorizeAI - helping families preserve and rediscover their memories through AI-powered photo colorization technology.",
   alternates: {
     canonical: "/about",
   },
@@ -19,7 +19,7 @@ export default function AboutPage() {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              About ColouriseAI
+              About ColorizeAI
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               We believe every family deserves to see their history in full color.
@@ -30,7 +30,7 @@ export default function AboutPage() {
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              ColouriseAI was created with a simple but powerful mission: to help people reconnect with their family history by transforming black and white photographs into vivid, colorful memories.
+              ColorizeAI was created with a simple but powerful mission: to help people reconnect with their family history by transforming black and white photographs into vivid, colorful memories.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Using advanced artificial intelligence, we've made professional-quality photo colorization accessible to everyone. No technical skills required, no expensive software needed - just upload your photo and watch the magic happen.

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/blog-data'
+import { getAllPosts, getAllCategories } from '@/lib/blog-data'
 import { getAllPillars, getAllTools } from '@/lib/content-hub'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -91,5 +91,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...blogPages, ...pillarPages, ...toolPages]
+  // Category pages
+  const allCategories = getAllCategories()
+  const categoryPages: MetadataRoute.Sitemap = allCategories.map(category => ({
+    url: `${baseUrl}/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...blogPages, ...pillarPages, ...toolPages, ...categoryPages]
 }
