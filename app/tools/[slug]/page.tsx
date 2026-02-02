@@ -10,6 +10,7 @@ import { ResolutionCalculator } from "@/components/tools/resolution-calculator"
 import { BeforeAfterGenerator } from "@/components/tools/before-after-generator"
 import { ScanningChecklist } from "@/components/tools/scanning-checklist"
 import { ToolSchema } from "@/components/tools/tool-schema"
+import { Footer } from "@/components/footer"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -185,6 +186,7 @@ export default async function ToolPage({ params }: PageProps) {
         </div>
       </section>
     </main>
+    <Footer />
     </>
   )
 }

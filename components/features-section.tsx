@@ -63,7 +63,7 @@ export function FeaturesSection() {
   }, [stageProgress])
 
   return (
-    <section id="features" className="relative bg-gradient-to-br from-white via-purple-50/30 to-pink-50/20">
+    <section id="features" className="relative bg-gray-50">
       
       {/* Section Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">

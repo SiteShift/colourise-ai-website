@@ -5,6 +5,76 @@ import { ArrowRight, ArrowLeft, BookOpen, Clock, CheckCircle, Palette, Wrench, U
 import { getPillar, getAllPillars, getRelatedContent, pillars } from "@/lib/content-hub"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
 import { GuideSchema } from "@/components/guides/guide-schema"
+import { Footer } from "@/components/footer"
+
+// Simple markdown parser for guide content
+function parseGuideContent(text: string): string {
+  // Convert **bold** to <strong>
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-gray-900 dark:text-white">$1</strong>')
+}
+
+// Content section renderer
+function GuideContentSection({ content }: { content: string }) {
+  const paragraphs = content.split('\n\n')
+
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((para, index) => {
+        const trimmed = para.trim()
+
+        // Check if it's a subheading (starts and ends with **)
+        if (trimmed.startsWith('**') && trimmed.endsWith('**') && !trimmed.slice(2, -2).includes('**')) {
+          const heading = trimmed.slice(2, -2)
+          return (
+            <h3 key={index} className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-2">
+              {heading}
+            </h3>
+          )
+        }
+
+        // Check if it's a list
+        const lines = trimmed.split('\n')
+        const isNumberedList = lines.every(line => /^\d+\.\s/.test(line.trim()) || line.trim() === '')
+        const isBulletList = lines.every(line => /^[-•]\s/.test(line.trim()) || line.trim() === '')
+
+        if (isNumberedList && lines.filter(l => l.trim()).length > 1) {
+          return (
+            <ol key={index} className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300">
+              {lines.filter(l => l.trim()).map((line, i) => {
+                const text = line.replace(/^\d+\.\s/, '')
+                return (
+                  <li key={i} dangerouslySetInnerHTML={{ __html: parseGuideContent(text) }} />
+                )
+              })}
+            </ol>
+          )
+        }
+
+        if (isBulletList && lines.filter(l => l.trim()).length > 1) {
+          return (
+            <ul key={index} className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+              {lines.filter(l => l.trim()).map((line, i) => {
+                const text = line.replace(/^[-•]\s/, '')
+                return (
+                  <li key={i} dangerouslySetInnerHTML={{ __html: parseGuideContent(text) }} />
+                )
+              })}
+            </ul>
+          )
+        }
+
+        // Regular paragraph
+        return (
+          <p
+            key={index}
+            className="text-gray-700 dark:text-gray-300 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: parseGuideContent(trimmed) }}
+          />
+        )
+      })}
+    </div>
+  )
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -1163,16 +1233,10 @@ export default async function PillarPage({ params }: PageProps) {
         {/* Main Content Sections */}
         {content && content.sections.map((section, index) => (
           <section key={index} className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               {section.title}
             </h2>
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              {section.content.split("\n\n").map((para, pIndex) => (
-                <p key={pIndex} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 whitespace-pre-line">
-                  {para}
-                </p>
-              ))}
-            </div>
+            <GuideContentSection content={section.content} />
           </section>
         ))}
 
@@ -1244,6 +1308,7 @@ export default async function PillarPage({ params }: PageProps) {
         </div>
       </div>
     </main>
+    <Footer />
     </>
   )
 }

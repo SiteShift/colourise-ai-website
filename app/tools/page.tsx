@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, Palette, Calendar, Calculator, SplitSquareHorizontal, CheckSquare, Wrench } from "lucide-react"
 import { getAllTools } from "@/lib/content-hub"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Free AI Photo Tools | ColorizeAI",
@@ -43,6 +44,7 @@ export default function ToolsPage() {
   const tools = getAllTools()
 
   return (
+    <>
     <main className="min-h-screen bg-white dark:bg-gray-950">
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
@@ -189,5 +191,7 @@ export default function ToolsPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   )
 }

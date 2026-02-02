@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { InteractiveShowcaseSection } from "@/components/interactive-showcase-section"
 import { FeaturesSection } from "@/components/features-section"
-import { GallerySection } from "@/components/gallery-section"
 import { SocialProofSection } from "@/components/social-proof-section"
 import { ResourcesSection } from "@/components/resources-section"
 import { Footer } from "@/components/footer"
@@ -14,7 +13,6 @@ export default function Home() {
       <HeroSection />
       <InteractiveShowcaseSection />
       <FeaturesSection />
-      <GallerySection />
       <ResourcesSection />
       <SocialProofSection />
       <Footer />

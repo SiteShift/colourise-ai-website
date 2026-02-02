@@ -1,10 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { BookOpen, Wrench, Compass, ArrowRight } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { getRelatedContent, getPillar, type FreeTool, type ContentPillar } from "@/lib/content-hub"
+import { getRelatedContent, getPillar, type FreeTool } from "@/lib/content-hub"
 import { getPostBySlug, type BlogPost } from "@/lib/blog-data"
 
 interface BlogInternalLinksProps {
@@ -39,99 +37,74 @@ export function BlogInternalLinks({ currentSlug, silo }: BlogInternalLinksProps)
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="my-12 p-6 bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-purple-100 dark:border-purple-800/30"
-    >
-      <div className="flex items-center gap-2 mb-6">
-        <Compass className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+    <div className="my-12 p-6 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700">
+      <div className="flex items-center gap-2 mb-4">
+        <Compass className="w-5 h-5 text-pink-500" />
         <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-          Explore More Topics
+          Explore More
         </h3>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Parent Guide (Pillar) */}
         {pillar && (
-          <div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <BookOpen className="w-4 h-4" />
-              <span>Complete Guide</span>
-            </div>
-            <Link
-              href={`/guides/${pillar.slug}`}
-              className="group block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 hover:shadow-md transition-all duration-200"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                    {pillar.title} Guide
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">
-                    {pillar.description}
-                  </p>
-                </div>
-                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+          <Link
+            href={`/guides/${pillar.slug}`}
+            className="group flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-pink-300 dark:hover:border-pink-600 hover:shadow-sm transition-all duration-200"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center text-white">
+                <BookOpen className="w-4 h-4" />
               </div>
-            </Link>
-          </div>
+              <div>
+                <span className="text-xs text-gray-500 dark:text-gray-400">Complete Guide</span>
+                <h4 className="font-medium text-gray-900 dark:text-white group-hover:text-pink-500 transition-colors text-sm">
+                  {pillar.title}
+                </h4>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-pink-500 group-hover:translate-x-1 transition-all" />
+          </Link>
         )}
 
-        {/* Related Articles */}
+        {/* Related Articles - Compact list */}
         {relatedPosts.length > 0 && (
-          <div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <BookOpen className="w-4 h-4" />
-              <span>Related Articles</span>
-            </div>
-            <div className="space-y-2">
-              {relatedPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 hover:shadow-sm transition-all duration-200"
-                >
-                  <span className="font-medium text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors line-clamp-1">
-                    {post.title}
-                  </span>
-                  <ArrowRight className="w-4 h-4 flex-shrink-0 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
-                </Link>
-              ))}
-            </div>
+          <div className="space-y-2">
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Related Articles</span>
+            {relatedPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex items-center justify-between p-2 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
+              >
+                <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-pink-500 transition-colors line-clamp-1">
+                  {post.title}
+                </span>
+                <ArrowRight className="w-3 h-3 flex-shrink-0 text-gray-400 group-hover:text-pink-500 transition-colors" />
+              </Link>
+            ))}
           </div>
         )}
 
-        {/* Related Tools */}
+        {/* Related Tools - Compact inline */}
         {relatedContent.tools.length > 0 && (
-          <div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Wrench className="w-4 h-4" />
-              <span>Free Tools</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {relatedContent.tools.map((tool: FreeTool) => (
-                <Link
-                  key={tool.slug}
-                  href={`/tools/${tool.slug}`}
-                  className="group flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 hover:shadow-sm transition-all duration-200"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                    <Wrench className="w-4 h-4 text-white" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="font-medium text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-sm line-clamp-1">
-                      {tool.name}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+            <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <Wrench className="w-3 h-3" />
+              Free Tools:
+            </span>
+            {relatedContent.tools.map((tool: FreeTool) => (
+              <Link
+                key={tool.slug}
+                href={`/tools/${tool.slug}`}
+                className="text-xs text-pink-500 hover:text-pink-600 font-medium transition-colors"
+              >
+                {tool.name}
+              </Link>
+            ))}
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   )
 }

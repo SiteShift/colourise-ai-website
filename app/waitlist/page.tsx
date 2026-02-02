@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CheckCircle, ArrowLeft, Sparkles, Palette, User, Maximize } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState("")
@@ -25,6 +26,7 @@ export default function WaitlistPage() {
   }
 
   return (
+    <>
     <main className="min-h-dvh bg-gray-50 flex items-center justify-center px-4 py-12">
       <div className="max-w-xl w-full">
         {/* Back Link */}
@@ -138,5 +140,7 @@ export default function WaitlistPage() {
         </p>
       </div>
     </main>
+    <Footer />
+    </>
   )
 }

@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <article className="min-h-screen bg-white dark:bg-gray-900">
         {/* Header Section */}
-        <header className="relative pt-20 pb-16 bg-gradient-to-br from-blue-50/30 to-purple-50/30 dark:from-blue-900/10 dark:to-purple-900/10">
+        <header className="relative pt-20 pb-16 bg-gray-50 dark:bg-gray-800/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <nav className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300 mb-8">
