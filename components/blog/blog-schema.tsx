@@ -4,6 +4,7 @@ interface BlogPost {
   content: string
   category: string
   publishedAt: string
+  updatedAt?: string
   readingTime: string
   author: {
     name: string
@@ -18,6 +19,12 @@ interface BlogPost {
     question: string
     answer: string
   }>
+}
+
+// Helper function to convert reading time to ISO 8601 duration
+function toISO8601Duration(readingTime: string): string {
+  const minutes = parseInt(readingTime.replace(/\D/g, '')) || 10
+  return `PT${minutes}M`
 }
 
 interface BlogSchemaProps {
@@ -46,7 +53,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
       }
     ],
     "datePublished": post.publishedAt,
-    "dateModified": post.publishedAt,
+    "dateModified": post.updatedAt || post.publishedAt,
     "author": {
       "@type": "Person",
       "name": post.author.name,
@@ -54,10 +61,6 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
       "description": post.author.bio,
       "image": `${baseUrl}${post.author.avatar}`,
       "url": `${baseUrl}/about`,
-      "sameAs": [
-        "https://linkedin.com/in/eleanor-grant-colorizeai",
-        "https://orcid.org/0000-0002-1234-5678"
-      ],
       "knowsAbout": [
         "Computer Vision",
         "Artificial Intelligence",
@@ -80,13 +83,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
         "width": 240,
         "height": 48
       },
-      "url": "https://colorizeai.app",
-      "sameAs": [
-        "https://twitter.com/colorizeai",
-        "https://facebook.com/colorizeai",
-        "https://instagram.com/colorizeai",
-        "https://linkedin.com/company/colorizeai"
-      ]
+      "url": "https://colorizeai.app"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -95,7 +92,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
     "articleSection": post.category,
     "keywords": post.tags.join(", "),
     "wordCount": post.content.split(/\s+/).length,
-    "timeRequired": post.readingTime,
+    "timeRequired": toISO8601Duration(post.readingTime),
     "about": {
       "@type": "Thing",
       "name": "AI Photo Colorization",
@@ -137,7 +134,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
     "name": post.title,
     "description": post.excerpt,
     "image": `${baseUrl}${post.featuredImage}`,
-    "totalTime": post.readingTime,
+    "totalTime": toISO8601Duration(post.readingTime),
     "estimatedCost": {
       "@type": "MonetaryAmount",
       "currency": "USD",
@@ -195,7 +192,7 @@ export function BlogSchema({ post, slug }: BlogSchemaProps) {
         "@type": "ListItem",
         "position": 3,
         "name": post.category,
-        "item": `${baseUrl}/blog?category=${post.category.toLowerCase()}`
+        "item": `${baseUrl}/blog/category/${post.category.toLowerCase()}`
       },
       {
         "@type": "ListItem",

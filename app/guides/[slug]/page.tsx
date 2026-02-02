@@ -38,10 +38,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${titles[slug] || pillar.title} | ColorizeAI`,
     description: pillar.description,
+    alternates: {
+      canonical: `/guides/${slug}`,
+    },
     openGraph: {
       title: titles[slug] || pillar.title,
       description: pillar.description,
+      url: `https://colorizeai.app/guides/${slug}`,
       type: "article",
+      images: [
+        {
+          url: "https://colorizeai.app/hero-background.webp",
+          width: 1200,
+          height: 630,
+          alt: `${pillar.title} Guide - ColorizeAI`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: titles[slug] || pillar.title,
+      description: pillar.description,
+      images: ["https://colorizeai.app/hero-background.webp"],
     },
   }
 }
@@ -1053,19 +1071,19 @@ export default async function PillarPage({ params }: PageProps) {
       <section className="py-16 px-4 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-6">
-            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${pillar.color} flex items-center justify-center text-white`}>
+            <div className="w-14 h-14 rounded-2xl bg-pink-500 flex items-center justify-center text-white">
               {iconMap[pillar.icon] || <Palette className="w-6 h-6" />}
             </div>
             <div>
-              <span className="text-sm text-purple-600 dark:text-purple-400 font-medium uppercase tracking-wide">
+              <span className="text-sm text-pink-500 font-medium uppercase tracking-wide">
                 Complete Guide
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-balance">
                 {pillar.title}
               </h1>
             </div>
           </div>
-          <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed text-pretty">
             {pillar.description}
           </p>
           <div className="flex items-center gap-6 mt-6 text-sm text-gray-500 dark:text-gray-400">
@@ -1092,9 +1110,9 @@ export default async function PillarPage({ params }: PageProps) {
         )}
 
         {/* Table of Contents - Cluster Articles */}
-        <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12">
+        <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12 border border-gray-100 dark:border-gray-800">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-purple-600" />
+            <BookOpen className="w-5 h-5 text-pink-500" />
             In This Guide
           </h2>
           <div className="space-y-3">
@@ -1103,20 +1121,20 @@ export default async function PillarPage({ params }: PageProps) {
                 <Link
                   key={article!.slug}
                   href={`/blog/${article!.slug}`}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700"
+                  className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200"
                 >
-                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">
+                  <span className="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white text-sm font-bold">
                     {index + 1}
                   </span>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900 dark:text-white">
+                    <h3 className="font-medium text-gray-900 dark:text-white group-hover:text-pink-500 transition-colors">
                       {article!.title}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">
                       {article!.excerpt}
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-400" />
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-pink-500 transition-colors" />
                 </Link>
               ))
             ) : (
@@ -1160,7 +1178,7 @@ export default async function PillarPage({ params }: PageProps) {
 
         {/* Key Takeaways */}
         {content && (
-          <div className="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20 rounded-2xl p-8 mb-12 border border-pink-100 dark:border-pink-900/30">
+          <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12 border border-gray-200 dark:border-gray-800">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
               <CheckCircle className="w-5 h-5 text-green-500" />
               Key Takeaways
@@ -1169,7 +1187,7 @@ export default async function PillarPage({ params }: PageProps) {
               {content.keyTakeaways.map((takeaway, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">{takeaway}</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-pretty">{takeaway}</span>
                 </li>
               ))}
             </ul>
@@ -1187,20 +1205,20 @@ export default async function PillarPage({ params }: PageProps) {
                 <Link
                   key={rPillar.slug}
                   href={`/guides/${rPillar.slug}`}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700"
+                  className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200"
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${rPillar.color} flex items-center justify-center text-white`}>
+                  <div className="w-12 h-12 rounded-xl bg-pink-500 flex items-center justify-center text-white">
                     {iconMap[rPillar.icon] || <Palette className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900 dark:text-white">
+                    <h3 className="font-medium text-gray-900 dark:text-white group-hover:text-pink-500 transition-colors">
                       {rPillar.title}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                       {rPillar.clusters.length} articles
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-400" />
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-pink-500 transition-colors" />
                 </Link>
               ))}
             </div>
@@ -1211,14 +1229,14 @@ export default async function PillarPage({ params }: PageProps) {
         <div className="flex items-center justify-between pt-8 border-t border-gray-200 dark:border-gray-800">
           <Link
             href="/guides"
-            className="flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 font-medium"
+            className="flex items-center gap-2 text-pink-500 hover:text-pink-600 font-medium transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             All Guides
           </Link>
           <Link
             href="/waitlist"
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-200"
           >
             Try ColorizeAI
             <ArrowRight className="w-4 h-4" />

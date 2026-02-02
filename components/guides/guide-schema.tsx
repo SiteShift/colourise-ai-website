@@ -1,3 +1,5 @@
+import { getAllPosts } from "@/lib/blog-data"
+
 interface GuideSchemaProps {
   pillar: {
     title: string
@@ -9,6 +11,10 @@ interface GuideSchemaProps {
 
 export function GuideSchema({ pillar }: GuideSchemaProps) {
   const baseUrl = "https://colorizeai.app"
+
+  // Get list of published article slugs to filter out "coming soon" articles
+  const publishedSlugs = getAllPosts().map(post => post.slug)
+  const publishedClusters = pillar.clusters.filter(slug => publishedSlugs.includes(slug))
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -38,16 +44,18 @@ export function GuideSchema({ pillar }: GuideSchemaProps) {
     "dateModified": new Date().toISOString().split("T")[0]
   }
 
+  // Only include published articles in CollectionPage schema (avoid 404 URLs)
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": pillar.title,
     "description": pillar.description,
     "url": `${baseUrl}/guides/${pillar.slug}`,
-    "hasPart": pillar.clusters.map(slug => ({
+    // Filter to only published articles - unpublished "coming soon" slugs are excluded
+    "hasPart": publishedClusters.length > 0 ? publishedClusters.map(slug => ({
       "@type": "Article",
       "url": `${baseUrl}/blog/${slug}`
-    }))
+    })) : undefined
   }
 
   const breadcrumbSchema = {

@@ -48,20 +48,23 @@ export default function BlogPage() {
             </p>
           </div>
 
-          {/* Categories */}
+          {/* Categories - Linked for SEO and navigation */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <Badge
-              className="bg-gray-900 text-white hover:bg-gray-800 cursor-pointer px-4 py-2"
-            >
-              All Posts
-            </Badge>
-            {categories.map((category) => (
+            <Link href="/blog">
               <Badge
-                key={category}
-                className="bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer px-4 py-2"
+                className="bg-gray-900 text-white hover:bg-gray-800 cursor-pointer px-4 py-2"
               >
-                {category}
+                All Posts
               </Badge>
+            </Link>
+            {categories.map((category) => (
+              <Link key={category} href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Badge
+                  className="bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer px-4 py-2"
+                >
+                  {category}
+                </Badge>
+              </Link>
             ))}
           </div>
 

@@ -140,7 +140,7 @@ export function BlogAuthorBio({ author, silo }: BlogAuthorBioProps) {
                   LinkedIn
                 </Link>
                 <Link
-                  href="mailto:eleanor@colorizeai.com"
+                  href="mailto:hello@colorizeai.app"
                   className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Mail className="w-4 h-4" />

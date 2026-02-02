@@ -1,54 +1,61 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Palette, Calendar, Calculator, SplitSquareHorizontal, CheckSquare, Sparkles, Wrench } from "lucide-react"
+import { ArrowRight, Palette, Calendar, Calculator, SplitSquareHorizontal, CheckSquare, Wrench } from "lucide-react"
 import { getAllTools } from "@/lib/content-hub"
 
 export const metadata: Metadata = {
   title: "Free AI Photo Tools | ColorizeAI",
   description: "Free tools to help with your photo colorization and restoration projects. Historical color palettes, photo date estimator, resolution calculator, and more.",
+  alternates: {
+    canonical: "/tools",
+  },
   openGraph: {
     title: "Free AI Photo Tools | ColorizeAI",
     description: "Free tools to help with your photo colorization and restoration projects. Historical color palettes, photo date estimator, resolution calculator, and more.",
+    url: "https://colorizeai.app/tools",
     type: "website",
+    images: [
+      {
+        url: "https://colorizeai.app/hero-background.webp",
+        width: 1200,
+        height: 630,
+        alt: "Free AI Photo Tools - ColorizeAI",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free AI Photo Tools | ColorizeAI",
+    description: "Free tools for photo colorization and restoration projects.",
+    images: ["https://colorizeai.app/hero-background.webp"],
   },
 }
 
 const iconMap: Record<string, React.ReactNode> = {
-  Palette: <Palette className="w-6 h-6" />,
-  Calendar: <Calendar className="w-6 h-6" />,
-  Calculator: <Calculator className="w-6 h-6" />,
-  SplitSquareHorizontal: <SplitSquareHorizontal className="w-6 h-6" />,
-  CheckSquare: <CheckSquare className="w-6 h-6" />,
-}
-
-const categoryColors: Record<string, string> = {
-  Reference: "from-pink-500 to-rose-600",
-  Analysis: "from-blue-500 to-cyan-500",
-  Utility: "from-green-500 to-emerald-500",
-  Creative: "from-purple-500 to-violet-600",
-  Guide: "from-orange-500 to-amber-500",
+  Palette: <Palette className="w-5 h-5" />,
+  Calendar: <Calendar className="w-5 h-5" />,
+  Calculator: <Calculator className="w-5 h-5" />,
+  SplitSquareHorizontal: <SplitSquareHorizontal className="w-5 h-5" />,
+  CheckSquare: <CheckSquare className="w-5 h-5" />,
 }
 
 export default function ToolsPage() {
   const tools = getAllTools()
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+    <main className="min-h-screen bg-white dark:bg-gray-950">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-purple-500/5 to-pink-500/5" />
-        <div className="max-w-6xl mx-auto relative">
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 mb-6">
-              <Wrench className="w-4 h-4 text-violet-500" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                100% Free Tools
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-violet-500 via-purple-600 to-pink-500 bg-clip-text text-transparent">
-              Free AI Photo Tools
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 mb-6">
+              <Wrench className="w-4 h-4 text-pink-500" />
+              100% Free Tools
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white text-balance">
+              Free AI <span className="brand-gradient-text">Photo Tools</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-400 text-pretty">
               Helpful tools to enhance your photo colorization and restoration projects.
               No signup required—start using them now.
             </p>
@@ -64,30 +71,28 @@ export default function ToolsPage() {
               <Link
                 key={tool.slug}
                 href={`/tools/${tool.slug}`}
-                className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-200"
               >
                 {/* Category badge */}
-                <div className="absolute top-4 right-4">
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full bg-gradient-to-r ${categoryColors[tool.category] || categoryColors.Reference} text-white`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-pink-500 flex items-center justify-center text-white">
+                    {iconMap[tool.icon] || <Wrench className="w-5 h-5" />}
+                  </div>
+                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
                     {tool.category}
                   </span>
                 </div>
 
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[tool.category] || categoryColors.Reference} flex items-center justify-center text-white mb-4`}>
-                  {iconMap[tool.icon] || <Wrench className="w-6 h-6" />}
-                </div>
-
                 {/* Content */}
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-violet-500 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300 pr-16">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-pink-500 transition-colors">
                   {tool.name}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2 text-pretty">
                   {tool.description}
                 </p>
 
                 {/* CTA */}
-                <span className="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium text-sm group-hover:gap-3 transition-all duration-300">
+                <span className="flex items-center gap-2 text-pink-500 font-medium text-sm group-hover:gap-3 transition-all duration-200">
                   Use Tool
                   <ArrowRight className="w-4 h-4" />
                 </span>
@@ -98,36 +103,36 @@ export default function ToolsPage() {
       </section>
 
       {/* How Tools Help Section */}
-      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900/50">
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900/50 border-y border-gray-100 dark:border-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center text-balance">
             How These Tools Help Your Projects
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white">
-                <Palette className="w-8 h-8" />
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 mb-4 rounded-xl bg-pink-500 flex items-center justify-center text-white">
+                <Palette className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Research & Reference</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm text-pretty">
                 Explore historical color palettes and estimate photo dates to ensure accurate colorization.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white">
-                <Calculator className="w-8 h-8" />
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 mb-4 rounded-xl bg-pink-500 flex items-center justify-center text-white">
+                <Calculator className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Planning & Calculation</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm text-pretty">
                 Calculate print sizes, check scanning settings, and plan your restoration workflow.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center text-white">
-                <SplitSquareHorizontal className="w-8 h-8" />
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 mb-4 rounded-xl bg-pink-500 flex items-center justify-center text-white">
+                <SplitSquareHorizontal className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Creation & Sharing</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm text-pretty">
                 Create before/after comparisons and prepare your colorized photos for sharing.
               </p>
             </div>
@@ -138,7 +143,7 @@ export default function ToolsPage() {
       {/* Related Guides */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center text-balance">
             Learn More About Photo Colorization
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -150,15 +155,15 @@ export default function ToolsPage() {
               <Link
                 key={guide.href}
                 href={guide.href}
-                className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700"
+                className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white">
+                <div className="w-10 h-10 rounded-xl bg-pink-500 flex items-center justify-center text-white">
                   <guide.icon className="w-5 h-5" />
                 </div>
-                <span className="font-medium text-gray-900 dark:text-white flex-1">
+                <span className="font-medium text-gray-900 dark:text-white flex-1 group-hover:text-pink-500 transition-colors">
                   {guide.title}
                 </span>
-                <ArrowRight className="w-4 h-4 text-gray-400" />
+                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-pink-500 transition-colors" />
               </Link>
             ))}
           </div>
@@ -166,18 +171,17 @@ export default function ToolsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-violet-500/10 via-purple-500/10 to-pink-500/10">
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
-          <Sparkles className="w-12 h-12 text-purple-500 mx-auto mb-6" />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
             Ready to Colorize Your Photos?
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 text-pretty">
             These tools work great alongside ColorizeAI. Join our waitlist to be first to colorize your black and white photos.
           </p>
           <Link
             href="/waitlist"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-200"
           >
             Join the Waitlist
             <ArrowRight className="w-5 h-5" />

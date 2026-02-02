@@ -30,12 +30,12 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Main Headline - Mobile */}
-          <h1 className="text-5xl font-extrabold text-black leading-none">
+          {/* Main Headline - Mobile (styled div to avoid duplicate H1 - desktop H1 is the canonical one for SEO) */}
+          <div className="text-5xl font-extrabold text-black leading-none">
             <div>Bring Your Old</div>
             <div>Photos Back</div>
             <div>to Life</div>
-          </h1>
+          </div>
 
           {/* CTA Button - Mobile */}
           <div className="flex justify-center">
@@ -58,7 +58,7 @@ export function HeroSection() {
                   width={500}
                   height={1000}
                   className="object-contain w-[500px] h-auto drop-shadow-2xl"
-                  priority
+                  loading="eager"
                   sizes="500px"
                 />
               </div>

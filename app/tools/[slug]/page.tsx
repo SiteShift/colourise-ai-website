@@ -34,10 +34,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${tool.name} - Free Tool | ColorizeAI`,
     description: tool.description,
+    alternates: {
+      canonical: `/tools/${slug}`,
+    },
     openGraph: {
       title: `${tool.name} | ColorizeAI`,
       description: tool.description,
+      url: `https://colorizeai.app/tools/${slug}`,
       type: "website",
+      images: [
+        {
+          url: "https://colorizeai.app/hero-background.webp",
+          width: 1200,
+          height: 630,
+          alt: `${tool.name} - Free Tool - ColorizeAI`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${tool.name} | ColorizeAI`,
+      description: tool.description,
+      images: ["https://colorizeai.app/hero-background.webp"],
     },
   }
 }
@@ -88,13 +106,13 @@ export default async function ToolPage({ params }: PageProps) {
       {/* Tool Header */}
       <section className="py-12 px-4 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto">
-          <span className="text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wide">
+          <span className="text-sm font-medium text-pink-500 uppercase tracking-wide">
             Free Tool • {tool.category}
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-4 text-balance">
             {tool.name}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-xl text-gray-600 dark:text-gray-400 text-pretty">
             {tool.description}
           </p>
         </div>
@@ -117,10 +135,10 @@ export default async function ToolPage({ params }: PageProps) {
 
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
-        <section className="py-12 px-4 bg-gray-50 dark:bg-gray-900/50">
+        <section className="py-12 px-4 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-800">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
-              <BookOpen className="w-5 h-5 text-purple-600" />
+              <BookOpen className="w-5 h-5 text-pink-500" />
               Related Articles
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -128,15 +146,15 @@ export default async function ToolPage({ params }: PageProps) {
                 <Link
                   key={article!.slug}
                   href={`/blog/${article!.slug}`}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-4 hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700"
+                  className="group bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-200"
                 >
-                  <span className="text-xs font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wide">
+                  <span className="text-xs font-medium text-pink-500 uppercase tracking-wide">
                     {article!.category}
                   </span>
-                  <h3 className="font-medium text-gray-900 dark:text-white mt-2 line-clamp-2">
+                  <h3 className="font-medium text-gray-900 dark:text-white mt-2 line-clamp-2 group-hover:text-pink-500 transition-colors">
                     {article!.title}
                   </h3>
-                  <span className="flex items-center gap-1 text-sm text-purple-600 dark:text-purple-400 mt-3">
+                  <span className="flex items-center gap-1 text-sm text-pink-500 mt-3">
                     Read more
                     <ArrowRight className="w-3 h-3" />
                   </span>
@@ -152,14 +170,14 @@ export default async function ToolPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link
             href="/tools"
-            className="flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 font-medium"
+            className="flex items-center gap-2 text-pink-500 hover:text-pink-600 font-medium transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             All Tools
           </Link>
           <Link
             href="/waitlist"
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-200"
           >
             Try ColorizeAI
             <ArrowRight className="w-4 h-4" />

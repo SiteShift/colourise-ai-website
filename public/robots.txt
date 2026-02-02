@@ -6,8 +6,8 @@ Allow: /
 
 # Block internal paths
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin/
+# Note: /_next/ is NOT blocked - Google needs JS/CSS to render pages properly
 
 # Sitemap
 Sitemap: https://colorizeai.app/sitemap.xml

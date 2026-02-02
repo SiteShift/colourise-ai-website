@@ -26,13 +26,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://colorizeai.app"),
-  alternates: {
-    canonical: "/",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  // Note: Removed sitewide canonical - each page should define its own canonical
+  // Note: Removed icons config - using dynamic icon routes (app/icon.tsx, app/apple-icon.tsx)
   openGraph: {
     title: "ColorizeAI - Bring Your Memories to Life with AI",
     description:

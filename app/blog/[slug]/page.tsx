@@ -15,6 +15,7 @@ import { BlogSchema } from "@/components/blog/blog-schema"
 import { StickyAppCTA } from "@/components/blog/sticky-app-cta"
 import { BlogFAQAccordion } from "@/components/blog/blog-faq-accordion"
 import { BlogStickyCTA } from "@/components/blog/blog-sticky-cta"
+import { BlogInternalLinks } from "@/components/blog/blog-internal-links"
 import { Footer } from "@/components/footer"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
 import blogStyles from "../blog-post.module.css"
@@ -106,15 +107,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 Blog
               </Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-900 dark:text-white">{post.category}</span>
+              <Link
+                href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}
+                className="text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400"
+              >
+                {post.category}
+              </Link>
             </nav>
 
             <div className="max-w-4xl mx-auto">
-              {/* Category Badge */}
+              {/* Category Badge - Linked for SEO */}
               <div className="mb-6">
-                <Badge className="bg-white/70 backdrop-blur-lg text-black border-white/30">
-                  {post.category}
-                </Badge>
+                <Link href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Badge className="bg-white/70 backdrop-blur-lg text-black border-white/30 hover:bg-white/90 transition-colors cursor-pointer">
+                    {post.category}
+                  </Badge>
+                </Link>
               </div>
 
               {/* Title */}
@@ -165,6 +173,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="mb-12">
               <BlogTableOfContents />
             </div>
+
+            {/* Internal Links Module - Builds topical authority */}
+            <BlogInternalLinks currentSlug={slug} silo={post.silo} />
 
             {/* Main Article Content */}
             <div className="max-w-3xl mx-auto">
