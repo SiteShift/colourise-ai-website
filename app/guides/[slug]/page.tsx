@@ -1179,15 +1179,15 @@ export default async function PillarPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Table of Contents - Cluster Articles */}
-        <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12 border border-gray-100 dark:border-gray-800">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-pink-500" />
-            In This Guide
-          </h2>
-          <div className="space-y-3">
-            {clusterArticles.length > 0 ? (
-              clusterArticles.map((article, index) => (
+        {/* Table of Contents - Only show if there are actual articles */}
+        {clusterArticles.length > 0 && (
+          <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12 border border-gray-100 dark:border-gray-800">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-pink-500" />
+              Related Articles
+            </h2>
+            <div className="space-y-3">
+              {clusterArticles.map((article, index) => (
                 <Link
                   key={article!.slug}
                   href={`/blog/${article!.slug}`}
@@ -1206,29 +1206,10 @@ export default async function PillarPage({ params }: PageProps) {
                   </div>
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-pink-500 transition-colors" />
                 </Link>
-              ))
-            ) : (
-              pillar.clusters.map((clusterSlug, index) => (
-                <div
-                  key={clusterSlug}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 opacity-60"
-                >
-                  <span className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 text-sm font-bold">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="font-medium text-gray-600 dark:text-gray-400">
-                      {clusterSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
-                    </h3>
-                    <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
-                      Coming soon
-                    </p>
-                  </div>
-                </div>
-              ))
-            )}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Main Content Sections */}
         {content && content.sections.map((section, index) => (

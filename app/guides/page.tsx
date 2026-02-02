@@ -138,24 +138,6 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
-            Ready to Colorize Your Photos?
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 text-pretty">
-            Join thousands of users transforming their black and white memories into vibrant color.
-          </p>
-          <Link
-            href="/waitlist"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-200"
-          >
-            Join the Waitlist
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </section>
     </main>
     <Footer />
     </>
